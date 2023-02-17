@@ -1,17 +1,61 @@
+
+//import area
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+
+//Every compaonent have its own data/states
+class A extends React.Component {
+  //1.Properties
+
+
+
+  //2.Constructor
+  constructor() {
+    super();
+    this.state = {
+      name: "Anuradha",
+      surname: "Patil",
+      address: "Karad"
+    }//state initialization
+
+
+  }
+  //3.Methods
+
+  render() {
+
+    this.setState({
+      ...this.state,
+      name: "Swati"
+    });
+    return <>
+      <h1>Oklabs {this.state.name}{this.state.surname}</h1>
+      <h1>OKLABS{this.state.address}</h1>
+      <h1>{this.props.name}</h1>
+      <h1>{this.props.surname}</h1>
+      <h1>{this.props.children}</h1>
+    </>
+
+  }
+
+
+}
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+    <A name="Santosh" surname="CHAUGULE">Kolhapur</A>
+  </>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//public/index.html(view)
+//src/index.js(logic)
+//package.json(Dependancy)
+//How Reactjs project load/start
+//npm start--->rect start command execute the index.js file--->public/index.html
+//1)webpack bundlar(All Assets bundel into single file)
+
+//2)Babel Compiler(javascript compiler-->New JS code into Old JS code) 
